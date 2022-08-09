@@ -2,6 +2,7 @@ import mongoose, { Types } from 'mongoose';
 const Schema = mongoose.Schema;
 import { SchemaTypes } from '@const';
 
+export type TypeMerchandise = 'merchandise' | 'finished' | 'materials';
 export interface IMerchandise {
   _id: Types.ObjectId;
   merchandiseCode: string;
@@ -9,7 +10,7 @@ export interface IMerchandise {
   description?: string;
   unit: string;
   group: string;
-  type: 'merchandise' | 'finished' | 'materials';
+  type: TypeMerchandise;
   price?: number;
   stallCode: string;
 }

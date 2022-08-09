@@ -18,7 +18,7 @@ export const merchandiseSchema = gql`
   }
 
   extend type Query {
-    getMerchandise: [Merchandise]
+    getMerchandise(filterType: TypeMerchandise): [Merchandise]
   }
   extend type Mutation {
     createMerchandise(

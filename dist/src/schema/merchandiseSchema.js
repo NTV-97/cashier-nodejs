@@ -20,7 +20,7 @@ exports.merchandiseSchema = (0, apollo_server_express_1.gql) `
   }
 
   extend type Query {
-    getMerchandise: [Merchandise]
+    getMerchandise(filterType: TypeMerchandise): [Merchandise]
   }
   extend type Mutation {
     createMerchandise(
