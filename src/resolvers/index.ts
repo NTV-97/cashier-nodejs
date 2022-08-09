@@ -9,6 +9,7 @@ import _ from 'lodash';
 import { GraphQLScalarType, Kind } from 'graphql';
 import { UserInputError } from 'apollo-server-errors';
 import { orderResolvers } from './orderResolver';
+import { billResolvers } from './billResolver';
 
 const dateScalar = new GraphQLScalarType({
   name: 'Date',
@@ -115,4 +116,5 @@ export const resolvers = _.merge(
   { TypeUser: typeUserScalar },
   { TypeUnitDiscount: typeUnitDiscountScalar },
   orderResolvers,
+  billResolvers,
 );

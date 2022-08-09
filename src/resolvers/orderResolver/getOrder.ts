@@ -23,14 +23,12 @@ export const getOrders = async (_: any, _params: undefined, context: Context) =>
       id: element.id,
       createdAt: element.createdAt,
       tableId: element.tableId,
-      paymentAt: element.paymentAt,
       price: element.price,
       totalPrice: element.totalPrice,
       discount: element.discount,
       priceDiscount: element.priceDiscount,
       unitDiscount: element.unitDiscount,
       orderData: element.orderData.sort(compare),
-      stallCode: element.stallCode,
       count: element.count,
     };
   });
@@ -45,14 +43,12 @@ export const getOrder = async (_: any, { id }: { id: Types.ObjectId }, context: 
     id: order.id,
     createdAt: order.createdAt,
     tableId: order.tableId,
-    paymentAt: order.paymentAt,
     price: order.price,
     totalPrice: order.totalPrice,
     discount: order.discount,
     priceDiscount: order.priceDiscount,
     unitDiscount: order.unitDiscount,
     orderData: order.orderData.sort(compare),
-    stallCode: order.stallCode,
     count: order.count,
   };
 };

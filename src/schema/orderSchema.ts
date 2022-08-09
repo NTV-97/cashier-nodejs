@@ -11,22 +11,16 @@ export const orderSchema = gql`
     unit: String!
     totalPrice: Float!
   }
-  input TableInput {
-    id: ID!
-    name: String!
-  }
   type Order {
     id: ID!
     createdAt: Date!
     tableId: ID!
-    paymentAt: Date
     price: Float!
     totalPrice: Float!
     discount: Float
     priceDiscount: Int
     unitDiscount: TypeUnitDiscount
     orderData: [OderData]
-    stallCode: String!
     count: Float!
   }
   input OrderDataInput {

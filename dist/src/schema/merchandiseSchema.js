@@ -13,7 +13,6 @@ exports.merchandiseSchema = (0, apollo_server_express_1.gql) `
     group: String!
     type: TypeMerchandise!
     price: Float
-    stallCode: String!
   }
   type Success {
     message: String!

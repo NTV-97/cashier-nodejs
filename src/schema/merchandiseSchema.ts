@@ -11,7 +11,6 @@ export const merchandiseSchema = gql`
     group: String!
     type: TypeMerchandise!
     price: Float
-    stallCode: String!
   }
   type Success {
     message: String!

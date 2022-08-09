@@ -22,4 +22,5 @@ __exportStar(require("./unitMerchandiseModel"), exports);
 __exportStar(require("./areaModel"), exports);
 __exportStar(require("./tableModel"), exports);
 __exportStar(require("./orderModel"), exports);
+__exportStar(require("./billModel"), exports);
 //# sourceMappingURL=index.js.map

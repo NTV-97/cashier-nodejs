@@ -7,7 +7,6 @@ export const tableSchema = gql`
     tableName: String!
     description: String
     used: Boolean!
-    stallCode: String!
   }
   type Success {
     message: String!

@@ -1,20 +1,13 @@
 import mongoose, { Types } from 'mongoose';
 const Schema = mongoose.Schema;
 import { SchemaTypes } from '@const';
+import { OrderData } from './orderModel';
 
-export type OrderData = {
+export interface IBill {
   id: Types.ObjectId;
-  count: number;
-  price: number;
-  name: string;
-  unit: string;
-  totalPrice: number;
-};
-
-export interface IOrder {
-  id: Types.ObjectId;
-  createdAt: Date;
+  createdOrderAt: Date;
   tableId: Types.ObjectId;
+  paymentAt?: Date;
   price: number;
   totalPrice: number;
   discount?: number;
@@ -25,7 +18,7 @@ export interface IOrder {
   stallCode: string;
 }
 
-const orderSchema = new Schema<IOrder>(
+const billSchema = new Schema<IBill>(
   {
     tableId: {
       type: SchemaTypes.ObjectId,
@@ -33,6 +26,11 @@ const orderSchema = new Schema<IOrder>(
     },
     paymentAt: {
       type: SchemaTypes.Date,
+      require: true,
+    },
+    createdOrderAt: {
+      type: SchemaTypes.Date,
+      require: true,
     },
     price: {
       type: SchemaTypes.Number,
@@ -67,4 +65,4 @@ const orderSchema = new Schema<IOrder>(
   { timestamps: true },
 );
 
-export const OrderModel = mongoose.model('Order', orderSchema);
+export const BillModel = mongoose.model('Bill', billSchema);

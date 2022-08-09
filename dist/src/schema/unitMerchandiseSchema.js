@@ -9,7 +9,6 @@ exports.unitMerchandiseSchema = (0, apollo_server_express_1.gql) `
     unitCode: String!
     unitName: String!
     description: String
-    stallCode: String!
   }
   type Success {
     message: String!

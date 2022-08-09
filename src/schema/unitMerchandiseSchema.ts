@@ -7,7 +7,6 @@ export const unitMerchandiseSchema = gql`
     unitCode: String!
     unitName: String!
     description: String
-    stallCode: String!
   }
   type Success {
     message: String!

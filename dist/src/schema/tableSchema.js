@@ -9,7 +9,6 @@ exports.tableSchema = (0, apollo_server_express_1.gql) `
     tableName: String!
     description: String
     used: Boolean!
-    stallCode: String!
   }
   type Success {
     message: String!

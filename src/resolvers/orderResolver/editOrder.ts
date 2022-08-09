@@ -35,6 +35,7 @@ const returnDataEdit = async (dataEdit: IOrder, order: IOrder) => {
         totalPrice: total,
         priceDiscount,
         orderData: currentOrderData,
+        count: reduce?.count,
       };
       break;
     case !!dataEdit.tableId && isDisCount:
@@ -53,6 +54,7 @@ const returnDataEdit = async (dataEdit: IOrder, order: IOrder) => {
         totalPrice: total,
         price,
         orderData: currentOrderData,
+        count: reduce?.count,
       };
       break;
     case isDisCount && !!dataEdit.orderData?.length:
@@ -63,6 +65,7 @@ const returnDataEdit = async (dataEdit: IOrder, order: IOrder) => {
         priceDiscount,
         price,
         orderData: currentOrderData,
+        count: reduce?.count,
       };
       break;
     case !!dataEdit.tableId:
@@ -82,6 +85,7 @@ const returnDataEdit = async (dataEdit: IOrder, order: IOrder) => {
         totalPrice: total,
         price,
         orderData: currentOrderData,
+        count: reduce?.count,
       };
       break;
     default:

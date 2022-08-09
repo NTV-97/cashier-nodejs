@@ -6,3 +6,4 @@ export * from './unitMerchandiseModel';
 export * from './areaModel';
 export * from './tableModel';
 export * from './orderModel';
+export * from './billModel';

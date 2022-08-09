@@ -6,7 +6,6 @@ export const merchandiseGroupSchema = gql`
     merchandiseGroupCode: String!
     merchandiseGroupName: String!
     description: String
-    stallCode: String!
   }
   type Success {
     message: String!

@@ -8,7 +8,6 @@ exports.merchandiseGroupSchema = (0, apollo_server_express_1.gql) `
     merchandiseGroupCode: String!
     merchandiseGroupName: String!
     description: String
-    stallCode: String!
   }
   type Success {
     message: String!

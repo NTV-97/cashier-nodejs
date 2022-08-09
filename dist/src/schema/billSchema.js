@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.orderSchema = void 0;
+exports.billSchema = void 0;
 const apollo_server_express_1 = require("apollo-server-express");
-exports.orderSchema = (0, apollo_server_express_1.gql) `
+exports.billSchema = (0, apollo_server_express_1.gql) `
   scalar Date
   scalar TypeUnitDiscount
   type OderData {
@@ -13,10 +13,11 @@ exports.orderSchema = (0, apollo_server_express_1.gql) `
     unit: String!
     totalPrice: Float!
   }
-  type Order {
+  type Bill {
     id: ID!
-    createdAt: Date!
+    createdOrderAt: Date!
     tableId: ID!
+    paymentAt: Date
     price: Float!
     totalPrice: Float!
     discount: Float
@@ -35,22 +36,22 @@ exports.orderSchema = (0, apollo_server_express_1.gql) `
   }
 
   extend type Query {
-    getOrders: [Order]!
-    getOrder(id: ID!): Order!
+    getBills: [Bill]!
+    getBill(id: ID!): Bill!
   }
   extend type Mutation {
-    createOrder(tableId: ID!, orderData: [OrderDataInput!]): Success!
-    editOrder(
-      id: ID!
-      tableId: ID
-      price: Float
-      totalPrice: Float
+    saveBill(
+      createdOrderAt: Date!
+      tableId: ID!
+      paymentAt: Date!
+      price: Float!
+      totalPrice: Float!
       discount: Float
       priceDiscount: Int
       unitDiscount: TypeUnitDiscount
-      orderData: [OrderDataInput]
-    ): Order!
-    deleteOrder(id: ID!): Success!
+      orderData: [OrderDataInput!]
+      count: Float!
+    ): Success!
   }
 `;
-//# sourceMappingURL=orderSchema.js.map
+//# sourceMappingURL=billSchema.js.map
