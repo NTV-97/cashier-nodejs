@@ -7,6 +7,7 @@ import { merchandiseGroupSchema } from './merchandiseGroupSchema';
 import { merchandiseSchema } from './merchandiseSchema';
 import { unitMerchandiseSchema } from './unitMerchandiseSchema';
 import { billSchema } from './billSchema';
+import { revenueSchema } from './revenueSchema';
 
 const baseSchema = gql`
   type Query
@@ -23,4 +24,5 @@ export const typeDefs = [
   unitMerchandiseSchema,
   orderSchema,
   billSchema,
+  revenueSchema,
 ];

@@ -16,6 +16,7 @@ const graphql_1 = require("graphql");
 const apollo_server_errors_1 = require("apollo-server-errors");
 const orderResolver_1 = require("./orderResolver");
 const billResolver_1 = require("./billResolver");
+const revenueResolver_1 = require("./revenueResolver");
 const dateScalar = new graphql_1.GraphQLScalarType({
     name: 'Date',
     description: 'Date custom scalar type',
@@ -101,5 +102,5 @@ const typeUnitDiscountScalar = new graphql_1.GraphQLScalarType({
         throw new apollo_server_errors_1.UserInputError("The field type must be 'percent' | 'value'");
     },
 });
-exports.resolvers = lodash_1.default.merge({}, userResolver_1.userResolvers, menuResolver_1.menuResolvers, authResolver_1.authResolvers, tableResolver_1.tableResolvers, merchandiseGroupResolver_1.merchandiseGroupResolvers, merchandiseResolver_1.merchandiseResolvers, unitMerchandiseResolver_1.unitMerchandiseResolvers, { Date: dateScalar }, { TypeMerchandise: typeMerchandiseScalar }, { TypeUser: typeUserScalar }, { TypeUnitDiscount: typeUnitDiscountScalar }, orderResolver_1.orderResolvers, billResolver_1.billResolvers);
+exports.resolvers = lodash_1.default.merge({}, userResolver_1.userResolvers, menuResolver_1.menuResolvers, authResolver_1.authResolvers, tableResolver_1.tableResolvers, merchandiseGroupResolver_1.merchandiseGroupResolvers, merchandiseResolver_1.merchandiseResolvers, unitMerchandiseResolver_1.unitMerchandiseResolvers, { Date: dateScalar }, { TypeMerchandise: typeMerchandiseScalar }, { TypeUser: typeUserScalar }, { TypeUnitDiscount: typeUnitDiscountScalar }, orderResolver_1.orderResolvers, billResolver_1.billResolvers, revenueResolver_1.revenueResolvers);
 //# sourceMappingURL=index.js.map

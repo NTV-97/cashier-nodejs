@@ -10,6 +10,7 @@ import { GraphQLScalarType, Kind } from 'graphql';
 import { UserInputError } from 'apollo-server-errors';
 import { orderResolvers } from './orderResolver';
 import { billResolvers } from './billResolver';
+import { revenueResolvers } from './revenueResolver';
 
 const dateScalar = new GraphQLScalarType({
   name: 'Date',
@@ -117,4 +118,5 @@ export const resolvers = _.merge(
   { TypeUnitDiscount: typeUnitDiscountScalar },
   orderResolvers,
   billResolvers,
+  revenueResolvers,
 );
