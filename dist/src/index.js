@@ -34,6 +34,12 @@ app.get('/', (req, res) => {
         message: 'OK',
     });
 });
+app.get('/demo', (req, res) => {
+    return res.json({
+        message: 'OK',
+        req: JSON.stringify(req),
+    });
+});
 const apolloServer = new apollo_server_express_1.ApolloServer({
     introspection: true,
     typeDefs: _schema_1.typeDefs,

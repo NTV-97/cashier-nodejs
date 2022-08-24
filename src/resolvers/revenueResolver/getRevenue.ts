@@ -23,6 +23,7 @@ export const getRevenue = async (
     })
       .limit(limit)
       .skip(limit * offset);
+
     return bills;
   }
   const bills: IBill[] = await BillModel.find({
