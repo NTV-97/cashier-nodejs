@@ -15,6 +15,23 @@ import { resolvers } from '@resolvers';
 import { Auth } from '@services';
 import { connect, formatError } from '@config';
 
+import mongoose, { Types } from 'mongoose';
+const Schema = mongoose.Schema;
+import { SchemaTypes } from '@const';
+
+export interface IDemo {
+  demo: object;
+}
+
+const demoSchema = new Schema<IDemo>({
+  demo: {
+    type: Object,
+    required: true,
+  },
+});
+
+export const DemoModel = mongoose.model('Demo', demoSchema);
+
 dotenv.config();
 if (!process.env.PORT) {
   console.log(`Error to get ports`);
@@ -36,10 +53,20 @@ app.get('/', (req: Request, res: Response) => {
   });
 });
 
-app.get('/demo', (req: Request, res: Response) => {
-  return res.json({
+app.post('/demo', async (req: Request, res: Response) => {
+  const demo = new DemoModel({ demo: req.body });
+  await demo.save();
+  res.json({
     message: 'OK',
-    req: JSON.stringify(req),
+    req: req.body,
+  });
+});
+
+app.get('/demo', async (req: Request, res: Response) => {
+  const demo = await DemoModel.find();
+  res.json({
+    message: 'OK',
+    demo,
   });
 });
 

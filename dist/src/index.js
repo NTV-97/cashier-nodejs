@@ -3,6 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.DemoModel = void 0;
 require("module-alias/register");
 const express_1 = __importDefault(require("express"));
 const body_parser_1 = __importDefault(require("body-parser"));
@@ -16,6 +17,15 @@ const apollo_server_core_1 = require("apollo-server-core");
 const _resolvers_1 = require("@resolvers");
 const _services_1 = require("@services");
 const _config_1 = require("@config");
+const mongoose_1 = __importDefault(require("mongoose"));
+const Schema = mongoose_1.default.Schema;
+const demoSchema = new Schema({
+    demo: {
+        type: Object,
+        required: true,
+    },
+});
+exports.DemoModel = mongoose_1.default.model('Demo', demoSchema);
 dotenv_1.default.config();
 if (!process.env.PORT) {
     console.log(`Error to get ports`);
@@ -34,10 +44,19 @@ app.get('/', (req, res) => {
         message: 'OK',
     });
 });
-app.get('/demo', (req, res) => {
-    return res.json({
+app.post('/demo', async (req, res) => {
+    const demo = new exports.DemoModel({ demo: req.body });
+    await demo.save();
+    res.json({
         message: 'OK',
-        req: JSON.stringify(req),
+        req: req.body,
+    });
+});
+app.get('/demo', async (req, res) => {
+    const demo = await exports.DemoModel.find();
+    res.json({
+        message: 'OK',
+        demo,
     });
 });
 const apolloServer = new apollo_server_express_1.ApolloServer({
